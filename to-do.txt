@@ -1,0 +1,7 @@
+Backlog
+
+
+In-Progress
+1: Lean Sliding window technique | Resources used: https://www.youtube.com/watch?v=MK-NZ4hN7rs
+
+Done
