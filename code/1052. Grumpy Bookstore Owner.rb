@@ -7,7 +7,7 @@ def max_satisfied(customers, grumpy, minutes)
       customers.sum
   else
       base_satisfaction = 0
-      consucutive_sum = customers.take(minutes).sum
+      consucutive_sum = customers.take(minutes).sum #Sum of first minutes aka n numbers ;)
       updated_window = consucutive_sum
       base_index = 0
       customers.each_with_index do |element, index|
@@ -15,8 +15,10 @@ def max_satisfied(customers, grumpy, minutes)
               base_satisfaction+=customers[index]
           end
           if index >= minutes
-              updated_window = consucutive_sum - customers[index - minutes] + customers[index]
-              if consucutive_sum < updated_window
+              puts "updated_window = #{consucutive_sum} customers[index - minutes] = #{customers[index - minutes]} customers[index] = #{customers[index]}"
+              updated_window = (updated_window - customers[index - minutes]) + customers[index]
+              puts "updated_window #{updated_window}"
+              if (consucutive_sum < updated_window) and grumpy[index] == 1
                   consucutive_sum = updated_window
                   base_index = index - minutes + 1
               end
@@ -29,8 +31,6 @@ def max_satisfied(customers, grumpy, minutes)
               puts "Base satisfaction = #{base_satisfaction}"
           end
       end
-      puts "Base satisfaction = #{base_satisfaction}"
-      puts "Consicutive sum = #{consucutive_sum}"
       base_satisfaction = base_satisfaction + consucutive_sum
   end
 end
