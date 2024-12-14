@@ -1,3 +1,5 @@
-5.downto 0 do |i|
-    puts '*'*5
+n = 5
+
+n.downto 0 do |i|
+    puts '*'*n
 end
